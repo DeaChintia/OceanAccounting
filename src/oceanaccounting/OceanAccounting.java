@@ -5,10 +5,12 @@
  */
 package oceanaccounting;
 
-/**
- *
- * @author Delia
- */
+// IMPORT LIBRARY
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+
 public class OceanAccounting extends javax.swing.JFrame {
 
     /**
@@ -28,27 +30,104 @@ public class OceanAccounting extends javax.swing.JFrame {
     private void initComponents() {
 
         basePanel = new javax.swing.JPanel();
-        loginPanel = new javax.swing.JPanel();
+        loginPanel = new javax.swing.JPanel() {
+
+            public void paintComponent(Graphics g) {
+                ImageIcon img = new ImageIcon("src\\imagesource\\login_bg.png");
+                Image image = img.getImage();
+
+                g.drawImage(image, 0, 0, this.getSize().width,
+                    this.getSize().height, this);
+            }
+        };
+        userLogo_lbl = new javax.swing.JLabel();
+        okLogin_btn = new javax.swing.JButton();
+        cancelLogin_btn = new javax.swing.JButton();
+        username_lbl = new javax.swing.JLabel();
+        password_lbl = new javax.swing.JLabel();
+        username_txt = new javax.swing.JTextField();
+        password_pf = new javax.swing.JPasswordField();
         subBasePanel = new javax.swing.JPanel();
         headerPanel = new javax.swing.JPanel();
         contentPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(null);
+        setResizable(false);
 
         basePanel.setLayout(new java.awt.CardLayout());
+
+        loginPanel.setPreferredSize(new java.awt.Dimension(640, 480));
+
+        userLogo_lbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesource/login_logo.png"))); // NOI18N
+
+        okLogin_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesource/ok1.png"))); // NOI18N
+        okLogin_btn.setBorderPainted(false);
+        okLogin_btn.setContentAreaFilled(false);
+        okLogin_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesource/ok2.png"))); // NOI18N
+
+        cancelLogin_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesource/cancel1.png"))); // NOI18N
+        cancelLogin_btn.setBorderPainted(false);
+        cancelLogin_btn.setContentAreaFilled(false);
+        cancelLogin_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesource/cancel2.png"))); // NOI18N
+
+        username_lbl.setFont(new java.awt.Font("Century", 1, 11)); // NOI18N
+        username_lbl.setForeground(new java.awt.Color(51, 153, 255));
+        username_lbl.setText("Username");
+
+        password_lbl.setFont(new java.awt.Font("Century", 1, 11)); // NOI18N
+        password_lbl.setForeground(new java.awt.Color(51, 153, 255));
+        password_lbl.setText("Password");
 
         javax.swing.GroupLayout loginPanelLayout = new javax.swing.GroupLayout(loginPanel);
         loginPanel.setLayout(loginPanelLayout);
         loginPanelLayout.setHorizontalGroup(
             loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 640, Short.MAX_VALUE)
+            .addGroup(loginPanelLayout.createSequentialGroup()
+                .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(loginPanelLayout.createSequentialGroup()
+                        .addGap(185, 185, 185)
+                        .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(password_lbl)
+                            .addComponent(username_lbl))
+                        .addGap(26, 26, 26)
+                        .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(username_txt, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
+                            .addComponent(password_pf)))
+                    .addGroup(loginPanelLayout.createSequentialGroup()
+                        .addGap(217, 217, 217)
+                        .addComponent(okLogin_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(39, 39, 39)
+                        .addComponent(cancelLogin_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(182, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginPanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(userLogo_lbl)
+                .addGap(267, 267, 267))
         );
         loginPanelLayout.setVerticalGroup(
             loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 486, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginPanelLayout.createSequentialGroup()
+                .addContainerGap(103, Short.MAX_VALUE)
+                .addComponent(userLogo_lbl)
+                .addGap(44, 44, 44)
+                .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(username_lbl)
+                    .addComponent(username_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(password_lbl)
+                    .addComponent(password_pf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(okLogin_btn)
+                    .addComponent(cancelLogin_btn))
+                .addGap(111, 111, 111))
         );
 
         basePanel.add(loginPanel, "card2");
+
+        subBasePanel.setPreferredSize(new java.awt.Dimension(640, 480));
 
         javax.swing.GroupLayout headerPanelLayout = new javax.swing.GroupLayout(headerPanel);
         headerPanel.setLayout(headerPanelLayout);
@@ -60,6 +139,8 @@ public class OceanAccounting extends javax.swing.JFrame {
             headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 150, Short.MAX_VALUE)
         );
+
+        contentPanel.setPreferredSize(new java.awt.Dimension(640, 330));
 
         javax.swing.GroupLayout contentPanelLayout = new javax.swing.GroupLayout(contentPanel);
         contentPanel.setLayout(contentPanelLayout);
@@ -83,7 +164,7 @@ public class OceanAccounting extends javax.swing.JFrame {
             subBasePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(subBasePanelLayout.createSequentialGroup()
                 .addComponent(headerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                 .addComponent(contentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -99,7 +180,7 @@ public class OceanAccounting extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 486, Short.MAX_VALUE)
+            .addGap(0, 500, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(basePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -145,9 +226,16 @@ public class OceanAccounting extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel basePanel;
+    private javax.swing.JButton cancelLogin_btn;
     private javax.swing.JPanel contentPanel;
     private javax.swing.JPanel headerPanel;
     private javax.swing.JPanel loginPanel;
+    private javax.swing.JButton okLogin_btn;
+    private javax.swing.JLabel password_lbl;
+    private javax.swing.JPasswordField password_pf;
     private javax.swing.JPanel subBasePanel;
+    private javax.swing.JLabel userLogo_lbl;
+    private javax.swing.JLabel username_lbl;
+    private javax.swing.JTextField username_txt;
     // End of variables declaration//GEN-END:variables
 }
