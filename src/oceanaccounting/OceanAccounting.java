@@ -6,10 +6,13 @@
 package oceanaccounting;
 
 // IMPORT LIBRARY
-import java.awt.Dimension;
+import java.sql.*;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.sql.DriverManager;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 public class OceanAccounting extends javax.swing.JFrame {
 
@@ -30,6 +33,18 @@ public class OceanAccounting extends javax.swing.JFrame {
     private void initComponents() {
 
         basePanel = new javax.swing.JPanel();
+        subBasePanel = new javax.swing.JPanel();
+        headerPanel = new javax.swing.JPanel();
+        header_lbl = new javax.swing.JLabel();
+        contentPanel = new javax.swing.JPanel();
+        profilePanel = new javax.swing.JPanel();
+        newProfile_lbl = new javax.swing.JLabel();
+        openProfile_lbl = new javax.swing.JLabel();
+        exirContent_lbl = new javax.swing.JLabel();
+        newProfile_btn = new javax.swing.JButton();
+        openProfile_btn = new javax.swing.JButton();
+        exitProfile_btn = new javax.swing.JButton();
+        newProfilePanel = new javax.swing.JPanel();
         loginPanel = new javax.swing.JPanel() {
 
             public void paintComponent(Graphics g) {
@@ -47,15 +62,144 @@ public class OceanAccounting extends javax.swing.JFrame {
         password_lbl = new javax.swing.JLabel();
         username_txt = new javax.swing.JTextField();
         password_pf = new javax.swing.JPasswordField();
-        subBasePanel = new javax.swing.JPanel();
-        headerPanel = new javax.swing.JPanel();
-        contentPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(null);
         setResizable(false);
 
         basePanel.setLayout(new java.awt.CardLayout());
+
+        subBasePanel.setPreferredSize(new java.awt.Dimension(640, 480));
+
+        headerPanel.setBackground(new java.awt.Color(255, 255, 255));
+
+        header_lbl.setBackground(new java.awt.Color(102, 204, 255));
+        header_lbl.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        header_lbl.setForeground(new java.awt.Color(255, 255, 255));
+        header_lbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesource/ocean2_logo.png"))); // NOI18N
+        header_lbl.setText("Ocean Accounting");
+        header_lbl.setOpaque(true);
+
+        javax.swing.GroupLayout headerPanelLayout = new javax.swing.GroupLayout(headerPanel);
+        headerPanel.setLayout(headerPanelLayout);
+        headerPanelLayout.setHorizontalGroup(
+            headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(headerPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(header_lbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        headerPanelLayout.setVerticalGroup(
+            headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(headerPanelLayout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(header_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(35, Short.MAX_VALUE))
+        );
+
+        contentPanel.setBackground(new java.awt.Color(255, 255, 255));
+        contentPanel.setPreferredSize(new java.awt.Dimension(640, 330));
+        contentPanel.setLayout(new java.awt.CardLayout());
+
+        profilePanel.setBackground(new java.awt.Color(255, 255, 255));
+
+        newProfile_lbl.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        newProfile_lbl.setText("Profil Baru");
+
+        openProfile_lbl.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        openProfile_lbl.setText("Buka Profil");
+
+        exirContent_lbl.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        exirContent_lbl.setText("Keluar");
+
+        newProfile_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesource/add1_icon1.png"))); // NOI18N
+        newProfile_btn.setBorderPainted(false);
+        newProfile_btn.setContentAreaFilled(false);
+
+        openProfile_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesource/profile_icon1.png"))); // NOI18N
+        openProfile_btn.setBorderPainted(false);
+        openProfile_btn.setContentAreaFilled(false);
+
+        exitProfile_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesource/exit_icon1.png"))); // NOI18N
+        exitProfile_btn.setBorderPainted(false);
+        exitProfile_btn.setContentAreaFilled(false);
+
+        javax.swing.GroupLayout profilePanelLayout = new javax.swing.GroupLayout(profilePanel);
+        profilePanel.setLayout(profilePanelLayout);
+        profilePanelLayout.setHorizontalGroup(
+            profilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(profilePanelLayout.createSequentialGroup()
+                .addGroup(profilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(profilePanelLayout.createSequentialGroup()
+                        .addGap(107, 107, 107)
+                        .addComponent(newProfile_lbl)
+                        .addGap(89, 89, 89))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, profilePanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(newProfile_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(80, 80, 80)))
+                .addGroup(profilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(profilePanelLayout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addComponent(openProfile_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(87, 87, 87)
+                        .addComponent(exitProfile_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, profilePanelLayout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(openProfile_lbl)
+                        .addGap(116, 116, 116)
+                        .addComponent(exirContent_lbl)))
+                .addContainerGap(94, Short.MAX_VALUE))
+        );
+        profilePanelLayout.setVerticalGroup(
+            profilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(profilePanelLayout.createSequentialGroup()
+                .addGap(71, 71, 71)
+                .addGroup(profilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(exitProfile_btn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(openProfile_btn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(newProfile_btn, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(18, 18, 18)
+                .addGroup(profilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(newProfile_lbl)
+                    .addComponent(openProfile_lbl)
+                    .addComponent(exirContent_lbl))
+                .addContainerGap(133, Short.MAX_VALUE))
+        );
+
+        contentPanel.add(profilePanel, "card2");
+
+        newProfilePanel.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout newProfilePanelLayout = new javax.swing.GroupLayout(newProfilePanel);
+        newProfilePanel.setLayout(newProfilePanelLayout);
+        newProfilePanelLayout.setHorizontalGroup(
+            newProfilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 640, Short.MAX_VALUE)
+        );
+        newProfilePanelLayout.setVerticalGroup(
+            newProfilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 330, Short.MAX_VALUE)
+        );
+
+        contentPanel.add(newProfilePanel, "card3");
+
+        javax.swing.GroupLayout subBasePanelLayout = new javax.swing.GroupLayout(subBasePanel);
+        subBasePanel.setLayout(subBasePanelLayout);
+        subBasePanelLayout.setHorizontalGroup(
+            subBasePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(headerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(contentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        subBasePanelLayout.setVerticalGroup(
+            subBasePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(subBasePanelLayout.createSequentialGroup()
+                .addComponent(headerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(contentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        basePanel.add(subBasePanel, "card3");
 
         loginPanel.setPreferredSize(new java.awt.Dimension(640, 480));
 
@@ -65,6 +209,11 @@ public class OceanAccounting extends javax.swing.JFrame {
         okLogin_btn.setBorderPainted(false);
         okLogin_btn.setContentAreaFilled(false);
         okLogin_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesource/ok2.png"))); // NOI18N
+        okLogin_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                okLogin_btnActionPerformed(evt);
+            }
+        });
 
         cancelLogin_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesource/cancel1.png"))); // NOI18N
         cancelLogin_btn.setBorderPainted(false);
@@ -108,7 +257,7 @@ public class OceanAccounting extends javax.swing.JFrame {
         loginPanelLayout.setVerticalGroup(
             loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginPanelLayout.createSequentialGroup()
-                .addContainerGap(103, Short.MAX_VALUE)
+                .addContainerGap(83, Short.MAX_VALUE)
                 .addComponent(userLogo_lbl)
                 .addGap(44, 44, 44)
                 .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -127,49 +276,6 @@ public class OceanAccounting extends javax.swing.JFrame {
 
         basePanel.add(loginPanel, "card2");
 
-        subBasePanel.setPreferredSize(new java.awt.Dimension(640, 480));
-
-        javax.swing.GroupLayout headerPanelLayout = new javax.swing.GroupLayout(headerPanel);
-        headerPanel.setLayout(headerPanelLayout);
-        headerPanelLayout.setHorizontalGroup(
-            headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 640, Short.MAX_VALUE)
-        );
-        headerPanelLayout.setVerticalGroup(
-            headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 150, Short.MAX_VALUE)
-        );
-
-        contentPanel.setPreferredSize(new java.awt.Dimension(640, 330));
-
-        javax.swing.GroupLayout contentPanelLayout = new javax.swing.GroupLayout(contentPanel);
-        contentPanel.setLayout(contentPanelLayout);
-        contentPanelLayout.setHorizontalGroup(
-            contentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        contentPanelLayout.setVerticalGroup(
-            contentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 330, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout subBasePanelLayout = new javax.swing.GroupLayout(subBasePanel);
-        subBasePanel.setLayout(subBasePanelLayout);
-        subBasePanelLayout.setHorizontalGroup(
-            subBasePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(headerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(contentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        subBasePanelLayout.setVerticalGroup(
-            subBasePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(subBasePanelLayout.createSequentialGroup()
-                .addComponent(headerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
-                .addComponent(contentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        basePanel.add(subBasePanel, "card3");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -180,7 +286,7 @@ public class OceanAccounting extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
+            .addGap(0, 480, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(basePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -188,6 +294,40 @@ public class OceanAccounting extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void okLogin_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okLogin_btnActionPerformed
+        String username = username_txt.getText();
+        String password = new String(password_pf.getPassword());
+        boolean isConnected = dbOpenCon(username, password);
+        if (isConnected == true){ 
+            changePanel(basePanel, subBasePanel);
+        } else {
+            username_txt.setText(null);
+            password_pf.setText(null);
+        }
+    }//GEN-LAST:event_okLogin_btnActionPerformed
+    
+    public static boolean dbOpenCon(String user, String pass) {
+        try {
+            Connection con;
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/", user, pass);
+            return true;
+        } catch (ClassNotFoundException | IllegalAccessException 
+                | InstantiationException | SQLException e) {
+            JOptionPane.showMessageDialog(null, "Username atau Password salah.");
+            return false;
+        }
+    }
+    
+    public void changePanel(JPanel base, JPanel panel) {
+        base.removeAll();
+        base.repaint();
+        base.revalidate();
+        
+        base.add(panel);
+        base.repaint();
+        base.revalidate();
+    }
     /**
      * @param args the command line arguments
      */
@@ -228,11 +368,20 @@ public class OceanAccounting extends javax.swing.JFrame {
     private javax.swing.JPanel basePanel;
     private javax.swing.JButton cancelLogin_btn;
     private javax.swing.JPanel contentPanel;
+    private javax.swing.JLabel exirContent_lbl;
+    private javax.swing.JButton exitProfile_btn;
     private javax.swing.JPanel headerPanel;
+    private javax.swing.JLabel header_lbl;
     private javax.swing.JPanel loginPanel;
+    private javax.swing.JPanel newProfilePanel;
+    private javax.swing.JButton newProfile_btn;
+    private javax.swing.JLabel newProfile_lbl;
     private javax.swing.JButton okLogin_btn;
+    private javax.swing.JButton openProfile_btn;
+    private javax.swing.JLabel openProfile_lbl;
     private javax.swing.JLabel password_lbl;
     private javax.swing.JPasswordField password_pf;
+    private javax.swing.JPanel profilePanel;
     private javax.swing.JPanel subBasePanel;
     private javax.swing.JLabel userLogo_lbl;
     private javax.swing.JLabel username_lbl;
