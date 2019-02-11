@@ -1,0 +1,34 @@
+Feb 11, 2019 4:20:10 PM oceanaccounting.Main <init>
+INFO: Handler created
+Feb 11, 2019 4:20:12 PM oceanaccounting.Main dbOpenCon
+FINER: ENTRY
+Feb 11, 2019 4:20:14 PM oceanaccounting.Main dbOpenCon
+FINER: RETURN return false
+Feb 11, 2019 4:20:22 PM oceanaccounting.Main dbOpenCon
+FINER: ENTRY
+Feb 11, 2019 4:20:22 PM oceanaccounting.Main dbOpenCon
+FINER: RETURN return true
+Feb 11, 2019 4:20:22 PM oceanaccounting.Main changePanel
+FINER: ENTRY
+Feb 11, 2019 4:20:22 PM oceanaccounting.Main changePanel
+FINER: RETURN
+Feb 11, 2019 4:20:23 PM oceanaccounting.Main changePanel
+FINER: ENTRY
+Feb 11, 2019 4:20:23 PM oceanaccounting.Main changePanel
+FINER: RETURN
+Feb 11, 2019 4:20:28 PM oceanaccounting.Main createDb
+FINER: ENTRY
+Feb 11, 2019 4:20:28 PM oceanaccounting.Main createDb
+FINER: RETURN
+Feb 11, 2019 4:20:28 PM oceanaccounting.Main useDb
+FINER: ENTRY
+Feb 11, 2019 4:20:28 PM oceanaccounting.Main useDb
+FINER: RETURN
+Feb 11, 2019 4:20:29 PM oceanaccounting.Main changePanel
+FINER: ENTRY
+Feb 11, 2019 4:20:29 PM oceanaccounting.Main changePanel
+FINER: RETURN
+Feb 11, 2019 4:20:30 PM oceanaccounting.Main dbCloseCon
+FINER: ENTRY
+Feb 11, 2019 4:20:31 PM oceanaccounting.Main dbCloseCon
+FINER: RETURN
