@@ -1,0 +1,12 @@
+Feb 12, 2019 12:10:08 PM oceanaccounting.Main dbOpenCon
+FINER: ENTRY
+Feb 12, 2019 12:10:09 PM oceanaccounting.Main dbOpenCon
+FINER: RETURN return true
+Feb 12, 2019 12:10:09 PM oceanaccounting.Main changePanel
+FINER: ENTRY
+Feb 12, 2019 12:10:09 PM oceanaccounting.Main changePanel
+FINER: RETURN
+Feb 12, 2019 12:10:18 PM oceanaccounting.Main dbCloseCon
+FINER: ENTRY
+Feb 12, 2019 12:10:19 PM oceanaccounting.Main dbCloseCon
+FINER: RETURN

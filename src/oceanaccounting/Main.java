@@ -22,6 +22,7 @@ import java.util.logging.*;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.UIManager;
 
 public class Main extends javax.swing.JFrame {
 
@@ -39,7 +40,6 @@ public class Main extends javax.swing.JFrame {
             LOGGER.setLevel(Level.FINER);
             SimpleFormatter formatter = new SimpleFormatter();
             handler.setFormatter(formatter);
-            LOGGER.info("Handler created");
         } catch (IOException | SecurityException e) {
             System.err.format("Initializing handler failed: %s", e);
         }
@@ -54,8 +54,34 @@ public class Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jComboBox1 = new javax.swing.JComboBox<>();
         basePanel = new javax.swing.JPanel();
+        subBasePanel = new javax.swing.JPanel();
+        headerPanel = new javax.swing.JPanel();
+        header_lbl = new javax.swing.JLabel();
+        contentPanel = new javax.swing.JPanel();
+        newProfilePanel = new javax.swing.JPanel();
+        companyName_lbl = new javax.swing.JLabel();
+        address_lbl = new javax.swing.JLabel();
+        email_lbl = new javax.swing.JLabel();
+        phone_lbl = new javax.swing.JLabel();
+        fax_lbl = new javax.swing.JLabel();
+        currency_lbl = new javax.swing.JLabel();
+        companyName_txt = new javax.swing.JTextField();
+        address_txt = new javax.swing.JTextField();
+        email_txt = new javax.swing.JTextField();
+        phone_txt = new javax.swing.JTextField();
+        fax_txt = new javax.swing.JTextField();
+        currency_cb = new javax.swing.JComboBox<>();
+        okNewProfile_btn = new javax.swing.JButton();
+        cancelNewProfile_btn = new javax.swing.JButton();
+        profilePanel = new javax.swing.JPanel();
+        newProfile_lbl = new javax.swing.JLabel();
+        openProfile_lbl = new javax.swing.JLabel();
+        exirContent_lbl = new javax.swing.JLabel();
+        newProfile_btn = new javax.swing.JButton();
+        openProfile_btn = new javax.swing.JButton();
+        exitProfile_btn = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
         loginPanel = new javax.swing.JPanel() {
 
             public void paintComponent(Graphics g) {
@@ -73,40 +99,278 @@ public class Main extends javax.swing.JFrame {
         password_lbl = new javax.swing.JLabel();
         username_txt = new javax.swing.JTextField();
         password_pf = new javax.swing.JPasswordField();
-        subBasePanel = new javax.swing.JPanel();
-        headerPanel = new javax.swing.JPanel();
-        header_lbl = new javax.swing.JLabel();
-        contentPanel = new javax.swing.JPanel();
-        profilePanel = new javax.swing.JPanel();
-        newProfile_lbl = new javax.swing.JLabel();
-        openProfile_lbl = new javax.swing.JLabel();
-        exirContent_lbl = new javax.swing.JLabel();
-        newProfile_btn = new javax.swing.JButton();
-        openProfile_btn = new javax.swing.JButton();
-        exitProfile_btn = new javax.swing.JButton();
-        newProfilePanel = new javax.swing.JPanel();
-        companyName_lbl = new javax.swing.JLabel();
-        address_lbl = new javax.swing.JLabel();
-        email_lbl = new javax.swing.JLabel();
-        phone_lbl = new javax.swing.JLabel();
-        fax_lbl = new javax.swing.JLabel();
-        currency_lbl = new javax.swing.JLabel();
-        companyName_txt = new javax.swing.JTextField();
-        address_txt = new javax.swing.JTextField();
-        email_txt = new javax.swing.JTextField();
-        phone_txt = new javax.swing.JTextField();
-        fax_txt = new javax.swing.JTextField();
-        currency_cb = new javax.swing.JComboBox<>();
-        okNewProfile_btn = new javax.swing.JButton();
-        cancelNewProfile_btn = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
         basePanel.setLayout(new java.awt.CardLayout());
+
+        subBasePanel.setOpaque(false);
+        subBasePanel.setPreferredSize(new java.awt.Dimension(640, 480));
+
+        headerPanel.setBackground(new java.awt.Color(255, 255, 255));
+
+        header_lbl.setBackground(new java.awt.Color(102, 204, 255));
+        header_lbl.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        header_lbl.setForeground(new java.awt.Color(255, 255, 255));
+        header_lbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesource/ocean2_logo.png"))); // NOI18N
+        header_lbl.setText("Ocean Accounting");
+        header_lbl.setOpaque(true);
+
+        javax.swing.GroupLayout headerPanelLayout = new javax.swing.GroupLayout(headerPanel);
+        headerPanel.setLayout(headerPanelLayout);
+        headerPanelLayout.setHorizontalGroup(
+            headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(headerPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(header_lbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        headerPanelLayout.setVerticalGroup(
+            headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(headerPanelLayout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(header_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(35, Short.MAX_VALUE))
+        );
+
+        contentPanel.setBackground(new java.awt.Color(255, 255, 255));
+        contentPanel.setPreferredSize(new java.awt.Dimension(640, 330));
+        contentPanel.setLayout(new java.awt.CardLayout());
+
+        newProfilePanel.setBackground(new java.awt.Color(255, 255, 255));
+        newProfilePanel.setPreferredSize(new java.awt.Dimension(640, 330));
+
+        companyName_lbl.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        companyName_lbl.setForeground(new java.awt.Color(51, 153, 255));
+        companyName_lbl.setText("Nama Perusahaan*");
+
+        address_lbl.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        address_lbl.setForeground(new java.awt.Color(51, 153, 255));
+        address_lbl.setText("Alamat*");
+
+        email_lbl.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        email_lbl.setForeground(new java.awt.Color(51, 153, 255));
+        email_lbl.setText("Email*");
+
+        phone_lbl.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        phone_lbl.setForeground(new java.awt.Color(51, 153, 255));
+        phone_lbl.setText("Nomor Telepon*");
+
+        fax_lbl.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        fax_lbl.setForeground(new java.awt.Color(51, 153, 255));
+        fax_lbl.setText("Fax");
+
+        currency_lbl.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        currency_lbl.setForeground(new java.awt.Color(51, 153, 255));
+        currency_lbl.setText("Kurs");
+
+        currency_cb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "IDR" }));
+
+        okNewProfile_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesource/ok1.png"))); // NOI18N
+        okNewProfile_btn.setBorderPainted(false);
+        okNewProfile_btn.setContentAreaFilled(false);
+        okNewProfile_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesource/ok2.png"))); // NOI18N
+        okNewProfile_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                okNewProfile_btnActionPerformed(evt);
+            }
+        });
+
+        cancelNewProfile_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesource/cancel1.png"))); // NOI18N
+        cancelNewProfile_btn.setBorderPainted(false);
+        cancelNewProfile_btn.setContentAreaFilled(false);
+        cancelNewProfile_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesource/cancel2.png"))); // NOI18N
+        cancelNewProfile_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelNewProfile_btnActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout newProfilePanelLayout = new javax.swing.GroupLayout(newProfilePanel);
+        newProfilePanel.setLayout(newProfilePanelLayout);
+        newProfilePanelLayout.setHorizontalGroup(
+            newProfilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, newProfilePanelLayout.createSequentialGroup()
+                .addContainerGap(135, Short.MAX_VALUE)
+                .addGroup(newProfilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(newProfilePanelLayout.createSequentialGroup()
+                        .addGroup(newProfilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(companyName_lbl)
+                            .addComponent(address_lbl, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(email_lbl, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(phone_lbl, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(fax_lbl, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(currency_lbl, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(53, 53, 53)
+                        .addGroup(newProfilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(fax_txt, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(phone_txt, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(email_txt, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(address_txt, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(companyName_txt, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(currency_cb, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(newProfilePanelLayout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addComponent(okNewProfile_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(116, 116, 116)
+                        .addComponent(cancelNewProfile_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(137, 137, 137))
+        );
+        newProfilePanelLayout.setVerticalGroup(
+            newProfilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(newProfilePanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(newProfilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(companyName_lbl)
+                    .addComponent(companyName_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(newProfilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(address_lbl)
+                    .addComponent(address_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(newProfilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(email_lbl)
+                    .addComponent(email_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(newProfilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(phone_lbl)
+                    .addComponent(phone_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(newProfilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(fax_lbl)
+                    .addComponent(fax_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(newProfilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(currency_lbl)
+                    .addComponent(currency_cb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addGroup(newProfilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(okNewProfile_btn, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(cancelNewProfile_btn, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(54, 54, 54))
+        );
+
+        contentPanel.add(newProfilePanel, "card3");
+
+        profilePanel.setBackground(new java.awt.Color(255, 255, 255));
+
+        newProfile_lbl.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        newProfile_lbl.setText("Profil Baru");
+
+        openProfile_lbl.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        openProfile_lbl.setText("Buka Profil");
+
+        exirContent_lbl.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        exirContent_lbl.setText("Keluar");
+
+        newProfile_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesource/add1_icon1.png"))); // NOI18N
+        newProfile_btn.setBorderPainted(false);
+        newProfile_btn.setContentAreaFilled(false);
+        newProfile_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesource/add1_icon2.png"))); // NOI18N
+        newProfile_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newProfile_btnActionPerformed(evt);
+            }
+        });
+
+        openProfile_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesource/profile_icon1.png"))); // NOI18N
+        openProfile_btn.setBorderPainted(false);
+        openProfile_btn.setContentAreaFilled(false);
+        openProfile_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesource/profile_icon2.png"))); // NOI18N
+        openProfile_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                openProfile_btnActionPerformed(evt);
+            }
+        });
+
+        exitProfile_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesource/exit_icon1.png"))); // NOI18N
+        exitProfile_btn.setBorderPainted(false);
+        exitProfile_btn.setContentAreaFilled(false);
+        exitProfile_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesource/exit_icon2.png"))); // NOI18N
+        exitProfile_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitProfile_btnActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout profilePanelLayout = new javax.swing.GroupLayout(profilePanel);
+        profilePanel.setLayout(profilePanelLayout);
+        profilePanelLayout.setHorizontalGroup(
+            profilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(profilePanelLayout.createSequentialGroup()
+                .addGroup(profilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(profilePanelLayout.createSequentialGroup()
+                        .addGap(107, 107, 107)
+                        .addComponent(newProfile_lbl)
+                        .addGap(89, 89, 89))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, profilePanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(newProfile_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(80, 80, 80)))
+                .addGroup(profilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(profilePanelLayout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addComponent(openProfile_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(87, 87, 87)
+                        .addComponent(exitProfile_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, profilePanelLayout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(openProfile_lbl)
+                        .addGap(116, 116, 116)
+                        .addComponent(exirContent_lbl)))
+                .addContainerGap(94, Short.MAX_VALUE))
+        );
+        profilePanelLayout.setVerticalGroup(
+            profilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(profilePanelLayout.createSequentialGroup()
+                .addGap(71, 71, 71)
+                .addGroup(profilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(exitProfile_btn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(openProfile_btn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(newProfile_btn, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(18, 18, 18)
+                .addGroup(profilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(newProfile_lbl)
+                    .addComponent(openProfile_lbl)
+                    .addComponent(exirContent_lbl))
+                .addContainerGap(135, Short.MAX_VALUE))
+        );
+
+        contentPanel.add(profilePanel, "card2");
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 640, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 332, Short.MAX_VALUE)
+        );
+
+        contentPanel.add(jPanel1, "card4");
+
+        javax.swing.GroupLayout subBasePanelLayout = new javax.swing.GroupLayout(subBasePanel);
+        subBasePanel.setLayout(subBasePanelLayout);
+        subBasePanelLayout.setHorizontalGroup(
+            subBasePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(headerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(contentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        subBasePanelLayout.setVerticalGroup(
+            subBasePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(subBasePanelLayout.createSequentialGroup()
+                .addComponent(headerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(contentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        basePanel.add(subBasePanel, "card3");
 
         loginPanel.setPreferredSize(new java.awt.Dimension(640, 480));
 
@@ -183,267 +447,6 @@ public class Main extends javax.swing.JFrame {
 
         basePanel.add(loginPanel, "card2");
 
-        subBasePanel.setPreferredSize(new java.awt.Dimension(640, 480));
-
-        headerPanel.setBackground(new java.awt.Color(255, 255, 255));
-
-        header_lbl.setBackground(new java.awt.Color(102, 204, 255));
-        header_lbl.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
-        header_lbl.setForeground(new java.awt.Color(255, 255, 255));
-        header_lbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesource/ocean2_logo.png"))); // NOI18N
-        header_lbl.setText("Ocean Accounting");
-        header_lbl.setOpaque(true);
-
-        javax.swing.GroupLayout headerPanelLayout = new javax.swing.GroupLayout(headerPanel);
-        headerPanel.setLayout(headerPanelLayout);
-        headerPanelLayout.setHorizontalGroup(
-            headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(headerPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(header_lbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        headerPanelLayout.setVerticalGroup(
-            headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(headerPanelLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(header_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(35, Short.MAX_VALUE))
-        );
-
-        contentPanel.setBackground(new java.awt.Color(255, 255, 255));
-        contentPanel.setPreferredSize(new java.awt.Dimension(640, 330));
-        contentPanel.setLayout(new java.awt.CardLayout());
-
-        profilePanel.setBackground(new java.awt.Color(255, 255, 255));
-
-        newProfile_lbl.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        newProfile_lbl.setText("Profil Baru");
-
-        openProfile_lbl.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        openProfile_lbl.setText("Buka Profil");
-
-        exirContent_lbl.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        exirContent_lbl.setText("Keluar");
-
-        newProfile_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesource/add1_icon1.png"))); // NOI18N
-        newProfile_btn.setBorderPainted(false);
-        newProfile_btn.setContentAreaFilled(false);
-        newProfile_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesource/add1_icon2.png"))); // NOI18N
-        newProfile_btn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                newProfile_btnActionPerformed(evt);
-            }
-        });
-
-        openProfile_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesource/profile_icon1.png"))); // NOI18N
-        openProfile_btn.setBorderPainted(false);
-        openProfile_btn.setContentAreaFilled(false);
-        openProfile_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesource/profile_icon2.png"))); // NOI18N
-
-        exitProfile_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesource/exit_icon1.png"))); // NOI18N
-        exitProfile_btn.setBorderPainted(false);
-        exitProfile_btn.setContentAreaFilled(false);
-        exitProfile_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesource/exit_icon2.png"))); // NOI18N
-        exitProfile_btn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exitProfile_btnActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout profilePanelLayout = new javax.swing.GroupLayout(profilePanel);
-        profilePanel.setLayout(profilePanelLayout);
-        profilePanelLayout.setHorizontalGroup(
-            profilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(profilePanelLayout.createSequentialGroup()
-                .addGroup(profilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(profilePanelLayout.createSequentialGroup()
-                        .addGap(107, 107, 107)
-                        .addComponent(newProfile_lbl)
-                        .addGap(89, 89, 89))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, profilePanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(newProfile_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(80, 80, 80)))
-                .addGroup(profilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(profilePanelLayout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addComponent(openProfile_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(87, 87, 87)
-                        .addComponent(exitProfile_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, profilePanelLayout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(openProfile_lbl)
-                        .addGap(116, 116, 116)
-                        .addComponent(exirContent_lbl)))
-                .addContainerGap(94, Short.MAX_VALUE))
-        );
-        profilePanelLayout.setVerticalGroup(
-            profilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(profilePanelLayout.createSequentialGroup()
-                .addGap(71, 71, 71)
-                .addGroup(profilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(exitProfile_btn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(openProfile_btn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(newProfile_btn, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(18, 18, 18)
-                .addGroup(profilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(newProfile_lbl)
-                    .addComponent(openProfile_lbl)
-                    .addComponent(exirContent_lbl))
-                .addContainerGap(135, Short.MAX_VALUE))
-        );
-
-        contentPanel.add(profilePanel, "card2");
-
-        newProfilePanel.setBackground(new java.awt.Color(255, 255, 255));
-        newProfilePanel.setPreferredSize(new java.awt.Dimension(640, 330));
-
-        companyName_lbl.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        companyName_lbl.setForeground(new java.awt.Color(51, 153, 255));
-        companyName_lbl.setText("Nama Perusahaan");
-
-        address_lbl.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        address_lbl.setForeground(new java.awt.Color(51, 153, 255));
-        address_lbl.setText("Alamat");
-
-        email_lbl.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        email_lbl.setForeground(new java.awt.Color(51, 153, 255));
-        email_lbl.setText("Email");
-
-        phone_lbl.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        phone_lbl.setForeground(new java.awt.Color(51, 153, 255));
-        phone_lbl.setText("Nomor Telepon");
-
-        fax_lbl.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        fax_lbl.setForeground(new java.awt.Color(51, 153, 255));
-        fax_lbl.setText("Fax");
-
-        currency_lbl.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        currency_lbl.setForeground(new java.awt.Color(51, 153, 255));
-        currency_lbl.setText("Kurs");
-
-        currency_cb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Rupiah" }));
-
-        okNewProfile_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesource/ok1.png"))); // NOI18N
-        okNewProfile_btn.setBorderPainted(false);
-        okNewProfile_btn.setContentAreaFilled(false);
-        okNewProfile_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesource/ok2.png"))); // NOI18N
-        okNewProfile_btn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                okNewProfile_btnActionPerformed(evt);
-            }
-        });
-
-        cancelNewProfile_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesource/cancel1.png"))); // NOI18N
-        cancelNewProfile_btn.setBorderPainted(false);
-        cancelNewProfile_btn.setContentAreaFilled(false);
-        cancelNewProfile_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesource/cancel2.png"))); // NOI18N
-        cancelNewProfile_btn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelNewProfile_btnActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout newProfilePanelLayout = new javax.swing.GroupLayout(newProfilePanel);
-        newProfilePanel.setLayout(newProfilePanelLayout);
-        newProfilePanelLayout.setHorizontalGroup(
-            newProfilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, newProfilePanelLayout.createSequentialGroup()
-                .addContainerGap(140, Short.MAX_VALUE)
-                .addGroup(newProfilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(newProfilePanelLayout.createSequentialGroup()
-                        .addGroup(newProfilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(companyName_lbl)
-                            .addComponent(address_lbl, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(email_lbl, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(phone_lbl, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(fax_lbl, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(currency_lbl, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addGap(53, 53, 53)
-                        .addGroup(newProfilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(fax_txt, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(phone_txt, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(email_txt, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(address_txt, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(companyName_txt, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(currency_cb, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(newProfilePanelLayout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(okNewProfile_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(116, 116, 116)
-                        .addComponent(cancelNewProfile_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(137, 137, 137))
-        );
-        newProfilePanelLayout.setVerticalGroup(
-            newProfilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(newProfilePanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(newProfilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(companyName_lbl)
-                    .addComponent(companyName_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(newProfilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(address_lbl)
-                    .addComponent(address_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(newProfilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(email_lbl)
-                    .addComponent(email_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(newProfilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(phone_lbl)
-                    .addComponent(phone_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(newProfilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(fax_lbl)
-                    .addComponent(fax_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(newProfilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(currency_lbl)
-                    .addComponent(currency_cb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
-                .addGroup(newProfilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(okNewProfile_btn, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(cancelNewProfile_btn, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(54, 54, 54))
-        );
-
-        contentPanel.add(newProfilePanel, "card3");
-
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 640, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 332, Short.MAX_VALUE)
-        );
-
-        contentPanel.add(jPanel1, "card4");
-
-        javax.swing.GroupLayout subBasePanelLayout = new javax.swing.GroupLayout(subBasePanel);
-        subBasePanel.setLayout(subBasePanelLayout);
-        subBasePanelLayout.setHorizontalGroup(
-            subBasePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(headerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(contentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        subBasePanelLayout.setVerticalGroup(
-            subBasePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(subBasePanelLayout.createSequentialGroup()
-                .addComponent(headerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(contentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        basePanel.add(subBasePanel, "card3");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -489,25 +492,35 @@ public class Main extends javax.swing.JFrame {
 
     private void okNewProfile_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okNewProfile_btnActionPerformed
         String companyName = companyName_txt.getText();
+        if (companyName == null || address_txt.getText() == null ||
+                email_txt.getText() == null || phone_txt.getText() == null) {
+            JOptionPane.showMessageDialog(null, "Field bertanda * wajib diisi.");
+            return;
+        }
         String filePath = String.format("src\\profile\\%s.oprf", companyName);
         if (new File(filePath).exists())
             JOptionPane.showMessageDialog(null, "Profil sudah ada.");
         else {
-            Path file = Paths.get("src\\profile\\" + companyName);
+            Path file = Paths.get("src\\profile\\" + companyName + ".oprf");
             Charset charset = Charset.forName("US-ASCII");
             String str = String.format("%s\n%s\n%s\n%s\n%s\n%s", companyName,
                     address_txt.getText(), email_txt.getText(), phone_txt.getText(), 
                     fax_txt.getText(), (String)currency_cb.getSelectedItem());
             try (BufferedWriter writer = Files.newBufferedWriter(file, charset)) {
                 writer.write(str, 0, str.length());
+                createDb(companyName);
+                useDb(companyName);
+                JOptionPane.showMessageDialog(null, "Profil berhasil dibuat.");
+                changePanel(contentPanel, jPanel1);
             } catch (IOException e) {
-                System.err.format("IOException: %s%n", e);
+                LOGGER.warning(String.format("%s", e));
             }
-            
-            createDb(companyName);
-            useDb(companyName);
         }
     }//GEN-LAST:event_okNewProfile_btnActionPerformed
+
+    private void openProfile_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openProfile_btnActionPerformed
+        System.out.println(chooseProfilePane());
+    }//GEN-LAST:event_openProfile_btnActionPerformed
     
     private boolean dbOpenCon(String user, String pass) {
         LOGGER.entering(getClass().getName(), "dbOpenCon");
@@ -519,6 +532,7 @@ public class Main extends javax.swing.JFrame {
         } catch (ClassNotFoundException | IllegalAccessException 
                 | InstantiationException | SQLException e) {
             JOptionPane.showMessageDialog(null, "Username atau Password salah.");
+            LOGGER.warning(String.format("%s", e));
             LOGGER.exiting(getClass().getName(), "dbOpenCon", "return false");
             return false;
         }
@@ -531,6 +545,7 @@ public class Main extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Logout berhasil.");
         } catch (HeadlessException | SQLException e) {
             JOptionPane.showMessageDialog(null, "Logout gagal! Silahkan coba lagi.");
+            LOGGER.warning(String.format("%s", e));
         }
         LOGGER.exiting(getClass().getName(), "dbCloseCon");
     }
@@ -541,7 +556,7 @@ public class Main extends javax.swing.JFrame {
             Statement query = con.createStatement();
             query.execute(String.format("CREATE DATABASE %s_db", companyName));
         } catch (SQLException e) {
-            System.err.format("Exception: %s%n", e);
+            LOGGER.warning(String.format("%s", e));
         }
         LOGGER.exiting(getClass().getName(), "createDb");
     }
@@ -552,22 +567,39 @@ public class Main extends javax.swing.JFrame {
             Statement query = con.createStatement();
             query.execute(String.format("USE %s_db", companyName));
         } catch (SQLException e) {
-            System.err.format("Exception: %s%n", e);
+            LOGGER.warning(String.format("%s", e));
         }
         LOGGER.exiting(getClass().getName(), "useDb");
     }
     
-    public void changePanel(JPanel base, JPanel panel) {
+    private void changePanel(JPanel base, JPanel panel) {
         LOGGER.entering(getClass().getName(), "changePanel");
-        base.removeAll();
-        base.repaint();
-        base.revalidate();
-        
-        base.add(panel);
-        base.repaint();
-        base.revalidate();
+        try {
+            base.removeAll();
+            base.repaint();
+            base.revalidate();
+
+            base.add(panel);
+            base.repaint();
+            base.revalidate();
+        } catch (Exception e) {
+            LOGGER.warning(String.format("%s", e));
+        }
         LOGGER.exiting(getClass().getName(), "changePanel");
     }
+    
+    private String chooseProfilePane() {
+        File profileFolder = new File("src\\profile");
+        File[] listOfFiles = profileFolder.listFiles();
+        Object[] profiles = new Object[listOfFiles.length];
+        for (int i = 0; i < listOfFiles.length; i++)
+            profiles[i] = listOfFiles[i].getName();
+        String choice = (String)JOptionPane.showInputDialog(null, 
+                "Pilih profil yang ada", "Pilih Profil", 
+                JOptionPane.QUESTION_MESSAGE, null, profiles, profiles[0]);
+        return choice;
+    }
+            
     /**
      * @param args the command line arguments
      */
@@ -578,12 +610,7 @@ public class Main extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
@@ -625,7 +652,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField fax_txt;
     private javax.swing.JPanel headerPanel;
     private javax.swing.JLabel header_lbl;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel loginPanel;
     private javax.swing.JPanel newProfilePanel;
